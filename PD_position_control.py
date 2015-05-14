@@ -41,10 +41,13 @@ def IK (t): #Inverse Kinematics
 	return theta
 
 def GC(pos1,pos2,pos3):	#Gravity compansation
+	pos1 = pos.item(0,0)
+	pos2 = pos.item(1,0)
+	pos3 = pos.item(2,0)
 	g1 = 0
 	g2 = 937760463*math.cos(pos2+pos3)/10000 + 412323129*math.cos(pos2)
 	g3 = 937760463*math.cos(pos2+pos3)/10000
-	GTerms = np.array([g1,g2,g3])
+	GTerms = np.matrix([[g1],[g2],[g3]])
 	return GTerms
 
 #-----------------
